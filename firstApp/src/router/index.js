@@ -25,7 +25,12 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      components: {
+        default: Home,
+        'Delivery': Delivery,
+        'History': History,
+        'OrderingGuide': OrderingGuide
+      }
     },
     {
       path: '/menu',
@@ -97,13 +102,13 @@ const router = new Router({
 });
 
 //全局守卫
-router.beforeEach((to, from, next) => {
-  // 判断store.gettes.isLogin == false
-  if(to.path == '/login' || to.path == '/register'){
-    next();
-  } else {
-    alert('还没有登录，请先登录');
-    next( '/login' );
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   // 判断store.gettes.isLogin == false
+//   if(to.path == '/login' || to.path == '/register'){
+//     next();
+//   } else {
+//     alert('还没有登录，请先登录');
+//     next( '/login' );
+//   }
+// });
 export default router
