@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
+import axios from 'axios'
+
+Vue.prototype.$axios=axios
 
 Vue.config.productionTip = false
 

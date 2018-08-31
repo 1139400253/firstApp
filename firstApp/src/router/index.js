@@ -98,8 +98,20 @@ const router = new Router({
       redirect: '/'
     } // 匹配不上就定向首页
   ],
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior(to, from, savedPostion) { // 滚动行为
+    // return { x: 0, y: 100 }
+    // return { selector: '.btn' // 选择器 }
+    if(savedPostion){
+      return savedPostion
+    } else {
+      return {
+        x: 0, y:0
+      }
+    }// 记住原来的位置
+  }
 });
+
 
 //全局守卫
 // router.beforeEach((to, from, next) => {
